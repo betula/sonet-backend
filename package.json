@@ -1,0 +1,13 @@
+{
+  "name": "sonet-backend",
+  "version": "1.0.0",
+  "description": "Sonet backend",
+  "license": "MIT",
+  "repository": "betula/sonet-backend",
+  "dependencies": {
+    "express": "4.15.2",
+    "pg": "6.1.5",
+    "globby": "6.1.0"
+  },
+  "engine": "node >= 7.0.0"
+}
