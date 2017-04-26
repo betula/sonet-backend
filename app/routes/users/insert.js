@@ -1,6 +1,6 @@
 
 
-module.exports = ({ route, users, comments }) => {
+module.exports = ({ route }) => {
 
   route('POST', '/user', async ({ json: { comment }, headers: { token } }) => {
     const user = await users.findOne({ token });

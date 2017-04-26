@@ -1,11 +1,11 @@
 const
-  PgPool = require('pg').Pool,
   Server = require('./lib/server'),
+  Db = require('./lib/db'),
   Globby = require('globby');
 
 module.exports = async ({ pg, hostname, port }) => {
-  const db = new PgPool(pg);
   const server = Server({ hostname, port });
+  const db = Db(pg);
 
   const context = {
     db,

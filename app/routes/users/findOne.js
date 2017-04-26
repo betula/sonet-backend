@@ -1,13 +1,12 @@
 
 
-module.exports = ({ route, comments }) => {
+module.exports = ({ route, db }) => {
 
   route('GET', '/user/:id', async ({ id }) => {
-    console.log(id);
-    const comment = await comments.findOne({ id });
-    if (!comment) return 404;
+    const user = await db.row('SELECT * FROM "users" WHERE email=$1', [ id ]);
+    if (!user) return 404;
 
-    return comment;
+    return user;
   });
 
 };
