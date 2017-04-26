@@ -9,10 +9,15 @@ module.exports = async ({ pg, hostname, port }) => {
 
   const context = {
     db,
-    route: server.route
+    route: server.route,
+    api: {}
   };
 
-  for (let filename of await Globby('./routes/**/*.js', { cwd: __dirname, absolute: true })) {
+  const requires = [
+    './api/**/*.js',
+    './routes/**/*.js'
+  ];
+  for (let filename of await Globby(requires, { cwd: __dirname, absolute: true })) {
     require(filename)(context);
   }
 

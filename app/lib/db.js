@@ -6,7 +6,6 @@ module.exports = (config) => {
   const pool = new Pool(config);
 
   return {
-
     async rows(...args) {
       return ( await pool.query(...args) ).rows;
     },
@@ -14,7 +13,6 @@ module.exports = (config) => {
     async row(...args) {
       return ( ( await pool.query(...args) ).rows || [] )[0];
     }
-
   }
 
 };
